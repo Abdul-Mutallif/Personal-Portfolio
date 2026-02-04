@@ -721,7 +721,7 @@ nav a:hover, nav a.active {
     align-items: center;   
     padding: 2rem 9%;
     background: #0a0a0a00;
-    border-top: 25px solid #00000040;
+    border-top: 5px solid #00000000;
 }
 
 .footer-text p {
