@@ -783,3 +783,16 @@ nav a:hover, nav a.active {
     font-size: 2.4rem;
     color: #fff;
 }
+
+/* Menu Button (Hamburger icon) */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    header {
+        justify-content: space-between;
+    }
+}
