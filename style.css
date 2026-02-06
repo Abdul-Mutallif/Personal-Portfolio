@@ -796,3 +796,144 @@ nav a:hover, nav a.active {
         justify-content: space-between;
     }
 }
+
+/* Achievements Section */
+.achievements-section {
+    padding: 10rem 9% 5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.achievements-title {
+    font-size: 4.5rem;
+    text-align: center;
+    margin-bottom: 5rem;
+    color: #b74b4b;
+}
+
+.achievements-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+}
+
+.achievement-card {
+    display: flex;
+    background: rgba(30, 30, 30, 0.7);
+    border-radius: 1rem;
+    overflow: hidden; /* Keeps image inside rounded corners */
+    transition: all 0.3s ease;
+    border-left: 4px solid #b74b4b;
+    box-shadow: 0 5px 15px rgba(183, 75, 75, 0.1);
+    min-height: 250px;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(183, 75, 75, 0.2);
+    background: rgba(40, 40, 40, 0.9);
+}
+
+/* Left Side: Text Content */
+.achievement-content {
+    flex: 1;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.achievement-icon {
+    font-size: 3rem;
+    color: #b74b4b;
+    margin-bottom: 1.5rem;
+}
+
+.achievement-name {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: #fff;
+    font-weight: 600;
+}
+
+.achievement-desc {
+    font-size: 1.5rem;
+    color: #ccc;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+.achievement-link {
+    display: inline-block;
+    padding: 0.8rem 2.5rem;
+    background: transparent;
+    border: 2px solid #b74b4b;
+    color: #b74b4b;
+    border-radius: 5rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.achievement-link:hover {
+    background: #b74b4b;
+    color: #fff;
+    box-shadow: 0 0 10px rgba(183, 75, 75, 0.5);
+}
+
+/* Right Side: Image */
+.achievement-image {
+    width: 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+.achievement-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.achievement-card:hover .achievement-image img {
+    transform: scale(1.05);
+}
+
+/* for black and white image hover effect */
+.achievement-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    filter: grayscale(100%) brightness(0.8); 
+    transition: all 0.5s ease;
+}
+
+.achievement-card:hover .achievement-image img {
+    transform: scale(1.05);
+    filter: grayscale(0%) brightness(1); 
+}
+
+/* Responsive Design for Achievements */
+@media (max-width: 768px) {
+
+    .achievement-card {
+        flex-direction: column-reverse;
+    }
+
+    .achievement-image {
+        width: 100%;
+        height: auto !important;
+        min-height: auto !important;
+        border-bottom: 2px solid #b74b4b;
+    }
+
+    .achievement-image img {
+        width: 100%;
+        height: auto !important;
+        object-fit: contain !important;
+        position: static !important;
+    }
+}
