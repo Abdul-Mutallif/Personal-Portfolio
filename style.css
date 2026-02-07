@@ -846,6 +846,8 @@ nav a:hover, nav a.active {
     border-left: 4px solid #b74b4b;
     box-shadow: 0 5px 15px rgba(183, 75, 75, 0.1);
     min-height: 250px;
+    align-items: stretch;
+
 }
 
 .achievement-card:hover {
@@ -904,9 +906,11 @@ nav a:hover, nav a.active {
 
 /* Right Side: Image */
 .achievement-image {
-    width: 40%;
-    position: relative;
-    overflow: hidden;
+    width: 45%;
+    height: auto;
+    min-height: 100%;
+    padding: 0;
+    display: flex;
 }
 
 .achievement-image img {
