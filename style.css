@@ -7,6 +7,18 @@
     text-decoration: none;
 }
 
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+        cursor: pointer;
+        z-index: 1001;
+    }
+    
+    header {
+        justify-content: space-between;
+    }
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     line-height: 1.6;
