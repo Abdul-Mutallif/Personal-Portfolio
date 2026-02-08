@@ -113,7 +113,6 @@ nav a:hover, nav a.active {
     min-height: 100vh;
     padding: 10rem 9% 5rem;
     gap: 0rem;
-    /* background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%); */
 }
 
 .home-content {
@@ -153,17 +152,8 @@ nav a:hover, nav a.active {
     max-width: 400px;
     height: auto;
     border-radius: 1rem;
-    /* box-shadow: 0 10px 30px rgba(183, 75, 75, 0.3); */ 
-    /* transition: transform 0.3s ease;  */
-    /* background: transparent; */
-
     mix-blend-mode: lighten; 
 }
-
-/* .home-img img:hover {
-    
-    transform: translateY(-10px);
-} */
 
 /* Social Icons */
 .social-icons {
@@ -234,7 +224,7 @@ nav a:hover, nav a.active {
 /* Typing Animation */
 .typing-text span {
     color: red;
-    position: relative; /* ✅ FIXED: Needed for ::after positioning */
+    position: relative;
 }
 
 /* Removed broken @keyframes words block */
@@ -272,7 +262,7 @@ nav a:hover, nav a.active {
 
 /* Skills Section */
 .skills-section {
-    padding: 10rem 9% 5rem;
+    padding: 0.5rem 9% 5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -325,7 +315,7 @@ nav a:hover, nav a.active {
 
 /* Education Section */
 .education-section {
-    padding: 10rem 9% 5rem;
+    padding: 0.5rem 9% 5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -454,7 +444,7 @@ nav a:hover, nav a.active {
 
 /* Contact Section */
 .contact-section {
-    padding: 10rem 9% 5rem;
+    padding: 0.5rem 9% 5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
@@ -695,7 +685,7 @@ nav a:hover, nav a.active {
     }
 }
 
-/* === project PAGE STYLING === */
+/* project PAGE STYLING */
 .project-page {
   background-color: #0d0d0d;
   color: #fff;
@@ -703,7 +693,7 @@ nav a:hover, nav a.active {
 }
 
 .project-section {
-  padding: 100px 20px;
+  padding: 0px 20px;
   max-width: 1000px;
   margin: 0 auto;
 }
@@ -819,7 +809,7 @@ nav a:hover, nav a.active {
 
 /* Achievements Section */
 .achievements-section {
-    padding: 10rem 9% 5rem;
+    padding: 0.5rem 9% 5rem;
     max-width: 1200px;
     margin: 0 auto;
 }
