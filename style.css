@@ -221,45 +221,6 @@ nav a:hover, nav a.active {
     }
 }
 
-/* Typing Animation */
-.typing-text span {
-    color: red;
-    position: relative;
-}
-
-/* Removed broken @keyframes words block */
-.typing-text span::after {
-    content: "|";
-    position: absolute;
-    right: -10px;
-    animation: blink 0.7s infinite;
-}
-
-@keyframes blink {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0; }
-}
-
-.typing-text span::before {
-    content: "Software Developer";
-    color: #b74b4b;
-    animation: words 20s infinite;
-}
-
-@keyframes cursor {
-    to {
-        border-left: 3px solid #b74b4b;
-    }
-}
-
-@keyframes words {
-    0%, 20% { content: "Web Developer"; }
-    21%, 40% { content: "Script Writer"; }
-    41%, 60% { content: "Content Writer"; }
-    61%, 80% { content: "Content Creator"; }
-    81%, 100% { content: "Video Creator"; }
-}
-
 /* Skills Section */
 .skills-section {
     padding: 0.5rem 9% 5rem;
