@@ -312,29 +312,30 @@
                 </div>
             </div>
             
-            <form action="https://formspree.io/f/xdkdeoae" method="POST" class="contact-form" data-aos="fade-left" data-aos-delay="500">
-                <div class="input-group">
-                    <input type="text" id="name" name="name" required>
-                    <label for="name">Your Name</label>
-                </div>
-                
-                <div class="input-group">
-                    <input type="email" id="email" name="email" required>
-                    <label for="email">Your Email</label>
-                </div>
-                
-                <div class="input-group">
-                    <input type="text" id="subject" name="subject" required>
-                    <label for="subject">Subject</label>
-                </div>
-                
-                <div class="input-group">
-                    <textarea id="message" rows="5" name="message" required></textarea>
-                    <label for="message">Your Message</label>
-                </div>
-                
-                <button type="submit" class="submit-btn">Send Message</button>
-            </form>
+            <form id="contact-form" onsubmit="sendEmail(event)" method="POST" class="contact-form" data-aos="fade-left" data-aos-delay="500">
+    
+        <div class="input-group">
+            <input type="text" id="name" name="from_name" required>
+            <label for="name">Your Name</label>
+        </div>
+    
+        <div class="input-group">
+            <input type="email" id="email" name="from_email" required>
+            <label for="email">Your Email</label>
+        </div>
+    
+        <div class="input-group">
+            <input type="text" id="subject" name="subject" required>
+            <label for="subject">Subject</label>
+        </div>
+    
+        <div class="input-group">
+            <textarea id="message" rows="5" name="message" required></textarea>
+            <label for="message">Your Message</label>
+        </div>
+    
+    <button type="submit" class="submit-btn">Send Message</button>
+    </form>
         </div>
     </section>
 
@@ -388,6 +389,7 @@
             });
         });
 
+
         // Update active class on scroll
         window.addEventListener('scroll', () => {
             const scrollPosition = window.scrollY;
@@ -407,7 +409,61 @@
                 }
             });
         });
+
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("fullImage");
+    const closeBtn = document.querySelector(".close");
+
+document.querySelectorAll(".zoom-trigger").forEach(img => {
+    img.addEventListener("click", function() {
+        modal.style.display = "flex";
+        modalImg.src = this.src;
+    });
+});
+
+closeBtn.addEventListener("click", () => {
+    modal.style.display = "none";
+});
+
+modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
     </script>
 
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+    (function() {
+        emailjs.init("DZMn4HOwV3s7EuKMe");
+    })();
+
+    function sendEmail(event) {
+        event.preventDefault(); 
+
+        const btn = event.target.querySelector('button');
+        const originalText = btn.innerHTML;
+
+        btn.innerHTML = 'Sending...';
+
+        emailjs.sendForm('service_sl2dhpb', 'template_3qhowa9', '#contact-form')
+            .then(function() {
+                btn.innerHTML = 'Message Sent! 😊';
+                document.getElementById("contact-form").reset();
+                
+                // Reset button text after 3 seconds
+                setTimeout(function() {
+                    btn.innerHTML = originalText;
+                }, 3000);
+
+            }, function(error) {
+                alert('Failed to send. Error: ' + JSON.stringify(error));
+                btn.innerHTML = originalText;
+            });
+    }
+    
+    </script>
+    
 </body>
 </html>
