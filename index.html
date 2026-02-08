@@ -40,7 +40,7 @@
         
         <div class="home-content" data-aos="fade-left" data-aos-delay="500">
             <h1>Hi, It's <span>Abdul</span></h1>
-            <h3 class="typing-text">I'm a <span></span></h3>
+            <h2 class="typing-text" style="font-size: 3rem; margin: 10px 0;">
             <p>I am a B.Tech student at Maharana Institute of Professional Studies, specializing in Computer Science. I am passionate about technology and possess strong programming skills in various languages like Python, Java, and C++. I am also proficient in data structures, algorithms, and object-oriented programming. Additionally, I have project in web development and machine learning. I am eager to learn and contribute to the field of computer science.</p>
             
             <div class="social-icons">
@@ -195,6 +195,35 @@
 
     <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
         <div class="achievement-content">
+        <div class="achievement-icon"><i class="fas fa-robot"></i></div>
+        <h3 class="achievement-name">Web Development with AI</h3>
+        <p class="achievement-desc">
+            Completed an 8-week intensive training with <strong>Dual Certification</strong> from <strong>Internshala</strong> and <strong>NSDC (Skill India)</strong>.
+            <br>
+            Mastered <strong>React, PHP, AI integration</strong>, and database management.
+            <br>
+            <span style="font-size: 0.95rem; color: #ff4b4b; font-weight: bold; margin-top: 5px; display: inline-block;">
+                <i class="fas fa-star"></i> Top Performer (Score: 100% / Grade A)
+            </span>
+        </p>
+        
+        <div >
+            <a href="assets/Internshala-AI.jpg" target="_blank" class="achievement-link">
+                Internshala <i class="fas fa-external-link-alt"></i>
+            </a>
+            <a href="assets/NSDC.jpg" target="_blank" class="achievement-link">
+                NSDC <i class="fas fa-external-link-alt"></i>
+            </a>
+        </div>
+        </div>
+    
+        <div class="achievement-image">
+        <img src="assets/Internshala-AI.jpg" alt="Web Development with AI Certificate">
+        </div>
+    </div>
+
+    <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="achievement-content">
         <div class="achievement-icon"><i class="fas fa-laptop-code"></i></div>
         <h3 class="achievement-name">Front End Web Development Internship</h3>
         <p class="achievement-desc">Completed a 6-week internship collaborating with <strong>AICTE</strong> & <strong>IBM SkillsBuild</strong>. Gained practical experience in modern web technologies.</p>
@@ -206,7 +235,7 @@
         </div>
     </div>
 
-    <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
+    <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
         <div class="achievement-content">
         <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
         <h3 class="achievement-name">Web Development Fundamentals</h3>
@@ -224,7 +253,7 @@
         </div>
     </div>
 
-    <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
+    <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
         <div class="achievement-content">
         <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
         <h3 class="achievement-name">Ninja Slayground 2.0 – AIR 84</h3>
@@ -239,7 +268,12 @@
         </div>
     </div>
     
+    </div>
 
+    <div class="view-more-container" style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+    <a href="more-achievements.html" class="btn">
+        View More Achievements <i class="fas fa-arrow-right"></i>
+    </a>
     </div>
 </section>
 
@@ -263,16 +297,16 @@
                 </div>
                 
                 <div class="info-card" data-aos="fade-right" data-aos-delay="300">
-                    <i class="fas fa-phone-alt"></i>
-                    <h3>Phone</h3>
-                    <a href="tel:+919876543210">+91 857XX 218XX</a>
+                    <i class="fab fa-whatsapp"></i>
+                    <h3>WhatsApp Only</h3>
+                    <a href="https://wa.me/918576021805" target="_blank">+91 8576021805</a>
                 </div>
                 
                 <div class="info-card" data-aos="fade-right" data-aos-delay="400">
                     <i class="fas fa-clock"></i>
                     <h3>Working Hours</h3>
                     <p>Monday - Friday: 9am - 5pm</p>
-                    <p>Weekends: Available for freelance</p>
+                    <p>Weekends: Upskilling & Research</p>
                 </div>
             </div>
             
@@ -311,6 +345,16 @@
         </div>
     </footer>
 
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+    var typed = new Typed('.typewriter', {
+        strings: ['Problem Solver','Web Developer', 'CS Engineer', 'Python Enthusiast', 'UI/UX Designer', 'Tech Enthusiast'],
+        typeSpeed: 100,
+        backSpeed: 60,
+        loop: true
+    });
+    </script>
+    
     <!-- AOS JS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
