@@ -324,7 +324,7 @@ function initTerminal() {
             else if(baseCmd === 'education') summary = "Currently pursuing Bachelor of Technology (B.Tech) in Computer Science.";
             else if(baseCmd === 'achievements') summary = "AIR 84 in Coding Ninjas Slayground 2.0 (2024).";
             else if(baseCmd === 'resume') summary = "Opening Resume URL...";
-            else if(baseCmd === 'contact') summary = "Email: mutallifabdul100@gmail.com\nLinkedIn: linkedin.com/in/abdul-mutallif\nGitHub: github.com/Abdul-Mutallif";
+            else if(baseCmd === 'contact') summary = "Email: abdul.mutallif.786@gmail.com\nLinkedIn: linkedin.com/in/abdul-mutallif\nGitHub: github.com/Abdul-Mutallif";
             
             await typeHTML(responseLine, `<div class="cmd-response" style="white-space:pre-wrap; border-left: 2px solid #27c93f; padding-left: 10px;">${summary}</div>`, 5);
             
@@ -343,7 +343,7 @@ function initTerminal() {
                 let reply = "I am Abdul's simulated AI. I can answer questions about his skills, projects, and contact info.";
                 if (query.includes('skill') || query.includes('tech')) reply = "Abdul specializes in modern web development using HTML, CSS, JS, React, PHP, and MySQL.";
                 if (query.includes('experience') || query.includes('work')) reply = "Abdul recently completed an intensive Frontend Web Development internship with IBM SkillsBuild.";
-                if (query.includes('hire') || query.includes('contact') || query.includes('email')) reply = "You can reach Abdul directly at mutallifabdul100@gmail.com! He is always open to discussing new opportunities.";
+                if (query.includes('hire') || query.includes('contact') || query.includes('email')) reply = "You can reach Abdul directly at abdul.mutallif.786@gmail.com! He is always open to discussing new opportunities.";
                 if (query.includes('project')) reply = "Abdul has built several full-stack applications, including FoodLink (a surplus food sharing platform) and a beautiful real-time weather app.";
                 if (query.includes('who are you') || query.includes('name')) reply = "I am the automated assistant representing Abdul Mutallif.";
                 await typeHTML(responseLine, `<div class="cmd-response" style="color:#27c93f;"><strong>AI:</strong> ${reply}</div>`);
@@ -389,7 +389,7 @@ function initTerminal() {
                 <div class="cmd-response" style="color:#ffbd2e; border: 2px dashed #ffbd2e; padding: 1rem; margin-top: 1rem; margin-bottom: 1rem;">
                     <h3 style="margin-bottom:0.5rem;">🎉 SUDO ACCESS GRANTED! 🎉</h3>
                     <p>You have unlocked the ultimate command. I am currently looking for an amazing team to join.</p>
-                    <p>Let's build something great together: <a href="mailto:mutallifabdul100@gmail.com" style="color:#fff;text-decoration:underline;">mutallifabdul100@gmail.com</a></p>
+                    <p>Let's build something great together: <a href="mailto:abdul.mutallif.786@gmail.com" style="color:#fff;text-decoration:underline;">abdul.mutallif.786@gmail.com</a></p>
                 </div>`);
             } else {
                 await typeHTML(responseLine, `<div class="cmd-response sudo-warning" style="color: #ff5f56; font-weight: bold; text-shadow: 0 0 5px red;">[CRITICAL ALERT] ROOT PRIVILEGES DENIED.</div>`, 30);

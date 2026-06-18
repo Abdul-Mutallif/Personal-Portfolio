@@ -4,14 +4,15 @@ Welcome to my personal portfolio website!
 This site showcases my skills, education, projects, experiences, and contact details, all built with a clean **black and red theme**, smooth animations, and responsive design.
 
 ## 🌐 Live Preview
-[Visit Portfolio](https://abdul-mutallif.github.io/Personal-Portfolio/)
+🔗 [https://abdul-mutallif.github.io/Personal-Portfolio/](https://abdul-mutallif.github.io/Personal-Portfolio/)
 
 
 ## ✨ Features
 
+- Fully functional interactive Linux-style Terminal (`help`, `ls`, games, etc.)
 - Responsive design for all screen sizes
 - Smooth AOS (Animate on Scroll) animations
-- Organized multi-page layout
+- Organized multi-page layout with filterable Achievements
 - Live project and certificate links
 - Fully custom black & red UI
 
