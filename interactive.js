@@ -12,6 +12,13 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 300);
     }
 
+    // Fix for Back-Forward Cache (bfcache) where loader gets stuck on "Back" button
+    window.addEventListener('pageshow', (event) => {
+        if (event.persisted && transitionEl) {
+            transitionEl.classList.remove('is-active');
+        }
+    });
+
     // Intercept internal links
     const internalLinks = document.querySelectorAll('a[href$=".html"]');
     internalLinks.forEach(link => {
