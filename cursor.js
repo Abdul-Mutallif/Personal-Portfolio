@@ -1,14 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // 1. Initialize AOS (Animate On Scroll)
-    if (typeof AOS !== 'undefined') {
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
-        });
-    }
-
-    // 2. Custom Cursor Logic
+    // Custom Cursor Logic
     const cursorDot = document.querySelector('[data-cursor-dot]');
     const cursorOutline = document.querySelector('[data-cursor-outline]');
     
@@ -23,32 +14,64 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
     }
 
+    // Variables to track mouse position and cursor position
+    let mouseX = 0, mouseY = 0;
+    let outlineX = 0, outlineY = 0;
+    let isHovering = false;
+    let ticking = false;
+
     // Follow mouse
     window.addEventListener('mousemove', (e) => {
-        const posX = e.clientX;
-        const posY = e.clientY;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
 
-        cursorDot.style.left = `${posX}px`;
-        cursorDot.style.top = `${posY}px`;
+        // Instant update for the dot, preserving the -50% centering
+        cursorDot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0) translate(-50%, -50%)`;
 
-        // Animate the outline slightly behind the dot for a smooth effect
-        cursorOutline.animate({
-            left: `${posX}px`,
-            top: `${posY}px`
-        }, { duration: 500, fill: "forwards" });
+        // Start animation loop for outline if not already running
+        if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateCursorOutline);
+        }
     });
 
-    // Hover effect for clickable elements
-    const clickables = document.querySelectorAll('a, button, .project-card, .achievement-detail-card, .menu-toggle, .terminal-toggle-btn');
-    
-    clickables.forEach(el => {
-        el.addEventListener('mouseenter', () => {
+    function updateCursorOutline() {
+        // Easing factor
+        const ease = 0.15;
+        
+        outlineX += (mouseX - outlineX) * ease;
+        outlineY += (mouseY - outlineY) * ease;
+        
+        cursorOutline.style.transform = `translate3d(${outlineX}px, ${outlineY}px, 0) translate(-50%, -50%)`;
+
+        // Continue looping if it hasn't caught up yet
+        if (Math.abs(mouseX - outlineX) > 0.1 || Math.abs(mouseY - outlineY) > 0.1) {
+            requestAnimationFrame(updateCursorOutline);
+        } else {
+            ticking = false;
+        }
+    }
+
+    // Event delegation for hover effect on clickable elements
+    document.body.addEventListener('mouseover', (e) => {
+        const target = e.target.closest('a, button, .project-card, .achievement-detail-card, .menu-toggle, .terminal-toggle-btn');
+        if (target && !isHovering) {
+            isHovering = true;
             cursorOutline.classList.add('cursor-hover');
             cursorDot.classList.add('cursor-hover');
-        });
-        el.addEventListener('mouseleave', () => {
-            cursorOutline.classList.remove('cursor-hover');
-            cursorDot.classList.remove('cursor-hover');
-        });
+        }
+    });
+
+    document.body.addEventListener('mouseout', (e) => {
+        const target = e.target.closest('a, button, .project-card, .achievement-detail-card, .menu-toggle, .terminal-toggle-btn');
+        if (target) {
+            // Check if the mouse is actually leaving the element
+            const related = e.relatedTarget;
+            if (!related || !target.contains(related)) {
+                isHovering = false;
+                cursorOutline.classList.remove('cursor-hover');
+                cursorDot.classList.remove('cursor-hover');
+            }
+        }
     });
 });

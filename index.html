@@ -50,8 +50,8 @@
         
         <div class="home-content" data-aos="fade-left" data-aos-delay="500">
             <h1>Hi, It's <span>Abdul</span></h1>
-            <h2 class="typing-text" style="font-size: 3rem; margin: 10px 0;">
-            I'm a <span class="typewriter" style="color: #b74b4b;"></span>
+            <h2 class="typing-text">
+            I'm a <span class="typewriter"></span>
             </h2>
             <p>I am a B.Tech student at Maharana Institute of Professional Studies, specializing in Computer Science. I am passionate about technology and possess strong programming skills in various languages like Python, Java, and C++. I am also proficient in data structures, algorithms, and object-oriented programming. Additionally, I have project in web development and machine learning. I am eager to learn and contribute to the field of computer science.</p>
             
@@ -62,8 +62,10 @@
                 <a href="https://www.instagram.com/abdul_mutallif_/" target="_blank" data-aos="zoom-in" data-aos-delay="400"><i class="fab fa-instagram"></i></a>
             </div>
             
-            <a href="#contact" class="btn" data-aos="fade-up" data-aos-delay="600">Hire Me</a>
-            <a href="assets/Abdul-Resume.pdf" class="btn" data-aos="fade-up" data-aos-delay="600">Resume</a>
+            <div class="btn-group">
+                <a href="#contact" class="btn" data-aos="fade-up" data-aos-delay="600">Hire Me</a>
+                <a href="assets/Abdul-Resume.pdf" class="btn" data-aos="fade-up" data-aos-delay="600">Resume</a>
+            </div>
         </div>
     </section>
 
@@ -129,11 +131,11 @@
             <div class="edu-card right" data-aos="fade-left" data-aos-delay="100">
                 <h3 class="edu-degree">Intermediate (Class 12)</h3>
                 <div class="edu-details">
-                    <p style="display: flex; align-items: flex-start; gap: 10px;">
-                    <i class="fas fa-school" style="margin-top: 5px; flex-shrink: 0;"></i>
+                    <p class="edu-school-name">
+                    <i class="fas fa-school"></i>
                 <span>
                     Dr. Virendra Swarup Education Centre 
-                    <br class="mobile-only"> <span style="font-size: 0.9em; color: #999;">(CBSE Board)</span>
+                    <br class="mobile-only"> <span class="board-name">(CBSE Board)</span>
                 </span>
                     </p>
                     <p><i class="fas fa-book"></i> PCM + Computer Science</p>
@@ -145,11 +147,11 @@
             <div class="edu-card left" data-aos="fade-right" data-aos-delay="200">
                 <h3 class="edu-degree">High School (Class 10)</h3>
                 <div class="edu-details">
-                    <p style="display: flex; align-items: flex-start; gap: 10px;">
-                    <i class="fas fa-school" style="margin-top: 5px; flex-shrink: 0;"></i>
+                    <p class="edu-school-name">
+                    <i class="fas fa-school"></i>
                 <span>
                     Lohia Academy International School 
-                    <br class="mobile-only"> <span style="font-size: 0.9em; color: #999;">(CBSE Board)</span>
+                    <br class="mobile-only"> <span class="board-name">(CBSE Board)</span>
                 </span>
                     </p>
                     <p><i class="fas fa-book"></i> Science, Mathematics, Social Science</p>
@@ -506,20 +508,8 @@
     });
     </script>
     
-    <!-- AOS JS -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <!-- Mobile menu and scroll logic -->
     <script>
-        // Initialize AOS
-        AOS.init({
-            duration: 1000,
-            once: true
-        });
-
-        // Mobile menu toggle
-        document.getElementById('mobile-menu').addEventListener('click', function() {
-            document.getElementById('navbar').classList.toggle('active');
-        });
-
         // Smooth scrolling for navigation links
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
@@ -528,6 +518,12 @@
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
                 });
+                
+                // Close mobile menu if open
+                const navbar = document.getElementById('navbar');
+                if (navbar && navbar.classList.contains('active')) {
+                    navbar.classList.remove('active');
+                }
                 
                 // Update active class
                 document.querySelectorAll('nav a').forEach(link => {
@@ -688,11 +684,11 @@
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     
     <!-- Custom Cursor & AOS Init -->
-    <script src="cursor.js"></script>
+    <script src="cursor.js?v=2"></script>
     <!-- Global Interactive Features -->
-    <script src="interactive.js?v=4"></script>
+    <script src="interactive.js?v=5"></script>
     
     <!-- Terminal Widget Script -->
-    <script src="terminal.js?v=21"></script>
+    <script src="terminal.js?v=22"></script>
 </body>
 </html>

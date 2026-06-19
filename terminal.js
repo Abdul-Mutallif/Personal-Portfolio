@@ -52,21 +52,34 @@ function initTerminal() {
     // --- State Variables ---
     let inGame = false, gameType = '';
 
-    // --- Dragging Logic ---
+    // --- Dragging Logic (Optimized) ---
     let isDragging = false, dragOffsetX = 0, dragOffsetY = 0;
-    terminalHeader.addEventListener('mousedown', (e) => {
-        isDragging = true; terminalWindow.classList.add('is-dragging');
-        const rect = terminalWindow.getBoundingClientRect();
-        dragOffsetX = e.clientX - rect.left; dragOffsetY = e.clientY - rect.top;
-    });
-    document.addEventListener('mousemove', (e) => {
+    
+    function onMouseMove(e) {
         if (!isDragging) return;
         terminalWindow.style.left = (e.clientX - dragOffsetX) + 'px';
         terminalWindow.style.top = (e.clientY - dragOffsetY) + 'px';
-        terminalWindow.style.bottom = 'auto'; terminalWindow.style.right = 'auto';
-    });
-    document.addEventListener('mouseup', () => {
-        if (isDragging) { isDragging = false; terminalWindow.classList.remove('is-dragging'); }
+        terminalWindow.style.bottom = 'auto'; 
+        terminalWindow.style.right = 'auto';
+    }
+
+    function onMouseUp() {
+        if (isDragging) {
+            isDragging = false; 
+            terminalWindow.classList.remove('is-dragging');
+            document.removeEventListener('mousemove', onMouseMove);
+            document.removeEventListener('mouseup', onMouseUp);
+        }
+    }
+
+    terminalHeader.addEventListener('mousedown', (e) => {
+        isDragging = true; 
+        terminalWindow.classList.add('is-dragging');
+        const rect = terminalWindow.getBoundingClientRect();
+        dragOffsetX = e.clientX - rect.left; 
+        dragOffsetY = e.clientY - rect.top;
+        document.addEventListener('mousemove', onMouseMove);
+        document.addEventListener('mouseup', onMouseUp);
     });
 
     // File system has been optimized out since commands like cd/cat were removed.
@@ -447,8 +460,8 @@ function initTerminal() {
                 await typeHTML(responseLine, '<div class="cmd-response cmd-error">Usage: read [number] or read [title]</div>');
             } else {
                 let post = null;
-                // Check if target is a number
-                const num = parseInt(target);
+                // Check if target is exclusively a number (prevent '3D rendering' from parsing as 3)
+                const num = Number(target);
                 if (!isNaN(num) && num > 0 && num <= BLOG_POSTS.length) {
                     post = BLOG_POSTS[num - 1];
                 } else {

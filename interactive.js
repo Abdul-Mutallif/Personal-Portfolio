@@ -1,6 +1,17 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     // ========================================
+    // 0. AOS INITIALIZATION
+    // ========================================
+    if (typeof AOS !== 'undefined') {
+        AOS.init({
+            duration: 1000,
+            once: true,
+            offset: 100
+        });
+    }
+
+    // ========================================
     // 1. PAGE TRANSITIONS
     // ========================================
     const transitionEl = document.getElementById('page-transition');
@@ -20,10 +31,15 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Intercept internal links
-    const internalLinks = document.querySelectorAll('a[href$=".html"]');
+    const internalLinks = document.querySelectorAll('a[href*=".html"]');
     internalLinks.forEach(link => {
         link.addEventListener('click', e => {
             if (link.target === "_blank") return; // Ignore external/new tab links
+            
+            // Allow default behavior for same-page hash links (e.g. index.html#home when already on index.html)
+            const url = new URL(link.href);
+            if (url.pathname === window.location.pathname && url.hash) return;
+
             e.preventDefault();
             const target = link.href;
             
@@ -39,15 +55,34 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ========================================
-    // 2. SCROLL PROGRESS BAR
+    // 2. SCROLL PROGRESS BAR (Optimized)
     // ========================================
     const scrollProgress = document.getElementById('scroll-progress');
+    let isScrolling = false;
+
     if (scrollProgress) {
         window.addEventListener('scroll', () => {
-            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-            const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-            const scrollPercent = (scrollTop / scrollHeight) * 100;
-            scrollProgress.style.width = scrollPercent + '%';
+            if (!isScrolling) {
+                window.requestAnimationFrame(() => {
+                    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+                    const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                    const scrollPercent = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+                    scrollProgress.style.width = scrollPercent + '%';
+                    isScrolling = false;
+                });
+                isScrolling = true;
+            }
+        });
+    }
+
+    // ========================================
+    // 3. GLOBAL MOBILE MENU
+    // ========================================
+    const mobileMenuBtn = document.getElementById('mobile-menu');
+    const navbar = document.getElementById('navbar');
+    if (mobileMenuBtn && navbar) {
+        mobileMenuBtn.addEventListener('click', () => {
+            navbar.classList.toggle('active');
         });
     }
 

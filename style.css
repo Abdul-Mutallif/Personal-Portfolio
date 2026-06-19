@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap');
 
+:root {
+    --bg-color: #121212;
+    --second-bg-color: #1e1e1e;
+    --text-color: #ffffff;
+    --main-color: #b74b4b;
+    --main-color-hover: rgba(183, 75, 75, 0.1);
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -120,10 +128,23 @@ nav a:hover, nav a.active {
 }
 
 .home-content h1 {
-    font-size: 5.5rem;
+    font-size: 5rem;
     font-weight: 700;
     line-height: 1.2;
     margin-bottom: 1.5rem;
+}
+
+.home-content h1 span {
+    color: var(--main-color);
+}
+
+.typing-text {
+    font-size: 3rem;
+    margin: 10px 0;
+}
+
+.typewriter {
+    color: var(--main-color);
 }
 
 .home-content h3 {
@@ -796,6 +817,22 @@ nav a:hover, nav a.active {
 .project-status-badge.ongoing {
     background: rgba(183, 75, 75, 0.85);
     color: #fff;
+}
+
+.edu-school-name {
+    display: flex; 
+    align-items: flex-start; 
+    gap: 10px;
+}
+
+.edu-school-name i {
+    margin-top: 5px; 
+    flex-shrink: 0;
+}
+
+.board-name {
+    font-size: 0.9em; 
+    color: #999;
 }
 
 /* Card Body */
