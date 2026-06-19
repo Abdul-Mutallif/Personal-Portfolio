@@ -14,7 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
     <!-- Stylesheets -->
     <link rel="stylesheet" href="style.css?v=9">
-    <link rel="stylesheet" href="achievements-page.css?v=2">
+    <link rel="stylesheet" href="achievements-page.css?v=4">
     <title>Achievements | Abdul Mutallif</title>
 </head>
 <body>
@@ -68,6 +68,9 @@
 
         <!-- 1. Ninja Slayground 2.0 -->
         <div class="achievement-detail-card" data-category="competitions" data-aos="fade-up" data-aos-delay="100">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/Rank Certificate.jpg" alt="Conqueror Certificate" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Competition</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -87,6 +90,10 @@
 
         <!-- 2. Web Development with AI -->
         <div class="achievement-detail-card" data-category="certifications" data-aos="fade-up" data-aos-delay="200">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/Internshala-AI.jpg" alt="Internshala Certificate" loading="lazy" style="height: 45%;" onerror="this.style.display='none'">
+                <img src="assets/NSDC.jpg" alt="NSDC Certificate" loading="lazy" style="height: 45%;" onerror="this.style.display='none'">
+            </div>
             <span class="achievement-category-tag">Certification</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -107,6 +114,9 @@
 
         <!-- 3. Front End Web Development Internship -->
         <div class="achievement-detail-card" data-category="certifications" data-aos="fade-up" data-aos-delay="300">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/Internship_Certificates.jpg" alt="Internship Certificate" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Certification</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -126,6 +136,9 @@
 
         <!-- 4. Web Development Fundamentals Badge -->
         <div class="achievement-detail-card" data-category="certifications" data-aos="fade-up" data-aos-delay="400">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/Web Developement fundamentals.jpg" alt="Web Development Badge" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Certification</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -145,6 +158,9 @@
 
         <!-- 5. Portfolio Website -->
         <div class="achievement-detail-card" data-category="projects" data-aos="fade-up" data-aos-delay="100">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/portfolio_mockup.png" alt="Portfolio Image" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Project</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -161,6 +177,9 @@
 
         <!-- 6. FoodLink Project -->
         <div class="achievement-detail-card" data-category="projects" data-aos="fade-up" data-aos-delay="200">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/foodlink_mockup.png" alt="FoodLink Image" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Project</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -177,6 +196,9 @@
 
         <!-- 7. Real-Time Weather App -->
         <div class="achievement-detail-card" data-category="projects" data-aos="fade-up" data-aos-delay="300">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/weather_mockup.png" alt="Weather App Image" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Project</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -193,6 +215,9 @@
 
         <!-- 8. Student Management System -->
         <div class="achievement-detail-card" data-category="projects" data-aos="fade-up" data-aos-delay="400">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/Student Management System.jpg" alt="Student Management System Image" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Project</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -209,6 +234,9 @@
 
         <!-- 9. JavaScript Learning Milestone -->
         <div class="achievement-detail-card" data-category="learning" data-aos="fade-up" data-aos-delay="100">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/JavaScript Learning Milestone.jpg" alt="JS Milestone Image" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Learning</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -225,6 +253,9 @@
 
         <!-- 10. Open Source Contributions -->
         <div class="achievement-detail-card" data-category="learning" data-aos="fade-up" data-aos-delay="200">
+            <div class="achievement-detail-image-overlay">
+                <img src="assets/Open Source Contributions.jpg" alt="Open Source Image" loading="lazy" onerror="this.parentElement.remove()">
+            </div>
             <span class="achievement-category-tag">Learning</span>
             <div class="achievement-detail-body">
                 <div class="achievement-detail-icon">
@@ -288,6 +319,35 @@
     <script src="interactive.js?v=5"></script>
     
     <!-- Terminal Widget Script -->
-    <script src="terminal.js?v=22"></script>
+    <script src="terminal.js?v=23"></script>
+    <script>
+        console.log("Image overlay script initialized.");
+        // Image Overlay Toggle Logic
+        const achievementCards = document.querySelectorAll('.achievement-detail-card');
+        console.log("Found cards:", achievementCards.length);
+
+        achievementCards.forEach(card => {
+            // Force cursor pointer
+            card.style.cursor = "pointer";
+            
+            card.addEventListener('click', function (e) {
+                console.log("Card clicked!");
+                // Ignore clicks on links or buttons so they still open normally
+                if (e.target.tagName.toLowerCase() === 'a' || e.target.closest('a') || e.target.tagName.toLowerCase() === 'button') {
+                    console.log("Click ignored because it was a link/button");
+                    return;
+                }
+
+                // Only toggle if this card contains an overlay image
+                const overlay = this.querySelector('.achievement-detail-image-overlay');
+                if (overlay) {
+                    console.log("Toggling image overlay");
+                    this.classList.toggle('show-image');
+                } else {
+                    console.log("No overlay found in this card");
+                }
+            });
+        });
+    </script>
 </body>
 </html>

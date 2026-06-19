@@ -12,7 +12,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css?v=9">
+    <link rel="stylesheet" href="style.css?v=10">
     <title>Abdul Mutallif | Portfolio</title>
 </head>
 <body>
@@ -330,7 +330,8 @@
         <!-- Card 1: Web Development with AI -->
         <div class="achievement-card" data-aos="fade-up" data-aos-delay="100">
             <div class="achievement-image">
-                <img src="assets/Internshala-AI.jpg" alt="Web Development with AI Certificate" loading="lazy">
+                <img src="assets/Internshala-AI.jpg" alt="Web Development with AI Certificate" loading="lazy" style="height: 45%;" onerror="this.style.display='none'">
+                <img src="assets/NSDC.jpg" alt="NSDC Certificate" loading="lazy" style="height: 45%;" onerror="this.style.display='none'">
             </div>
             <div class="achievement-content">
                 <div class="achievement-icon"><i class="fas fa-robot"></i></div>
@@ -354,7 +355,7 @@
         <!-- Card 2: Frontend Internship -->
         <div class="achievement-card" data-aos="fade-up" data-aos-delay="200">
             <div class="achievement-image">
-                <img src="assets/Internship_Certificates.jpg" alt="AICTE Internship Certificate" loading="lazy">
+                <img src="assets/Internship_Certificates.jpg" alt="AICTE Internship Certificate" loading="lazy" onerror="this.parentElement.remove()">
             </div>
             <div class="achievement-content">
                 <div class="achievement-icon"><i class="fas fa-laptop-code"></i></div>
@@ -375,7 +376,7 @@
         <!-- Card 3: IBM Badge -->
         <div class="achievement-card" data-aos="fade-up" data-aos-delay="300">
             <div class="achievement-image">
-                <img src="assets/Web Developement fundamentals.jpg" alt="IBM Web Development Certificate" loading="lazy">
+                <img src="assets/Web Developement fundamentals.jpg" alt="IBM Web Development Certificate" loading="lazy" onerror="this.parentElement.remove()">
             </div>
             <div class="achievement-content">
                 <div class="achievement-icon"><i class="fas fa-certificate"></i></div>
@@ -396,7 +397,7 @@
         <!-- Card 4: Ninja Slayground -->
         <div class="achievement-card" data-aos="fade-up" data-aos-delay="400">
             <div class="achievement-image">
-                <img src="assets/Rank Certificate.jpg" alt="Coding Ninjas Rank Certificate" loading="lazy">
+                <img src="assets/Rank Certificate.jpg" alt="Coding Ninjas Rank Certificate" loading="lazy" onerror="this.parentElement.remove()">
             </div>
             <div class="achievement-content">
                 <div class="achievement-icon"><i class="fas fa-trophy"></i></div>
@@ -624,16 +625,22 @@
         })();
 
         // ========================================
-        // ACHIEVEMENT CARDS — Click to Toggle Image
+        // ACHIEVEMENT CARDS - Click to Toggle Image
         // ========================================
         document.querySelectorAll('.achievement-card').forEach(card => {
+            // Force cursor pointer
+            card.style.cursor = "pointer";
+            
             card.addEventListener('click', function(e) {
                 // If the user clicked a link (or an icon inside a link), do not toggle the image
-                if (e.target.closest('a')) {
+                if (e.target.closest('a') || e.target.tagName.toLowerCase() === 'button') {
                     return;
                 }
-                // Toggle the image display
-                this.classList.toggle('show-image');
+                
+                // Only toggle the "show-image" class if the overlay still exists
+                if (this.querySelector('.achievement-image')) {
+                    this.classList.toggle('show-image');
+                }
             });
         });
 
